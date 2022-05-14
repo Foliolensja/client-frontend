@@ -8,8 +8,8 @@ import { MarketActivity } from "../../components/dashboard/MarketActivity";
 import { useSession, signIn, signOut, getToken } from "next-auth/react";
 import { useRouter } from "next/router";
 
-// import styles from "../../styles/dashboard/Dashboard.module.css";
-// import styles from "../../styles/dashboard/Dashboard.module.css"
+import styles from "../../styles/dashboard/Dashboard.module.css";
+
 
 console.log("help");
 const Dashboard = () => {
@@ -17,7 +17,7 @@ const Dashboard = () => {
   const [name, setName] = useState("");
   const router = useRouter();
   console.log(session);
-  let styles = {}
+  
 
   useEffect(() => {
     let url = `${window.location.origin}/auth/login`;
