@@ -368,14 +368,14 @@ export default function Home() {
               d="M93.7344 24.8671L49.2481 69.3533C48.1842 70.4173 48.1841 72.1423 49.2481 73.2062L93.7343 117.692C94.7983 118.756 96.5233 118.756 97.5873 117.692L142.074 73.2063C143.137 72.1423 143.137 70.4173 142.074 69.3533L97.5873 24.8671C96.5233 23.8031 94.7983 23.8031 93.7344 24.8671Z"
               fill="#4C35E6"
               stroke="#4C35E6"
-              stroke-width="0.89"
-              stroke-miterlimit="10"
+              strokeWidth="0.89"
+              strokeMiterlimit="10"
             />
             <path
               d="M94.0904 33.4448L57.8258 69.7094C56.9585 70.5767 56.9585 71.9829 57.8258 72.8502L94.0904 109.115C94.9577 109.982 96.3639 109.982 97.2312 109.115L133.496 72.8502C134.363 71.9829 134.363 70.5767 133.496 69.7093L97.2312 33.4448C96.3639 32.5774 94.9577 32.5775 94.0904 33.4448Z"
               fill="#4C35E6"
               stroke="white"
-              stroke-miterlimit="10"
+              strokeMiterlimit="10"
             />
           </svg>
           <h2>Our philosophy</h2>
@@ -383,17 +383,17 @@ export default function Home() {
         <div>
           <p>
             It makes sense that different investments earn different returns.
-            Some investments are also riskier than others. But here's the
+            Some investments are also riskier than others. But here&apos;s the
             thing—to get a higher return, you need to stomach more risk of
             losing your hard-earned cash. Fun? No way.
           </p>
           <p>
-            This harsh “more risk, more return” reality doesn't only mean the
+            This harsh “more risk, more return” reality doesn&apos;t only mean the
             rich get richer. It also means there is no one perfect investment
             portfolio. A young, well-paid professional can afford a lot more
             risk than a retiree on a tight budget—and that's OK. Their
             portfolios look different because they are different and they have
-            different situations in life. And since everyone's situation is
+            different situations in life. And since everyone&apos;s situation is
             different, everyone needs a different portfolio. We decided to
             create something that provides just that.
           </p>
@@ -445,10 +445,10 @@ export default function Home() {
           <div>
             <h2>track your Portfolio</h2>
             <p className={styles.max_p}>
-              One more thing: we don't just give you a bomb portfolio and
+              One more thing: we don&apos;t just give you a bomb portfolio and
               abandon you to the market—we track your portfolio for you. You can
-              skip the complicated math and finance if that's not your
-              thing…just log in anytime to see how it's doing.
+              skip the complicated math and finance if that&apos;s not your
+              thing…just log in anytime to see how it&apos;s doing.
             </p>
             <Link href={"/auth/signup"}>
               <a className={styles.btn}>Get started for free</a>
@@ -469,7 +469,7 @@ export default function Home() {
               <p>
                 Jason handles the math and AI backend at FolioLens. While
                 serving as the Director of Investor Information at the UWI Young
-                Investors' Club, he realized that lots of hardworking persons'
+                Investors&apos; Club, he realized that lots of hardworking persons&apos;
                 money gets lost in Jamaica because of poor financial literacy.
                 So he wanted to leverage 21st century technology to address that
                 problem. He studied computer science and economics at the UWI
@@ -490,23 +490,23 @@ export default function Home() {
                       <path
                         d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
                         stroke="white"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                       <path
                         d="M2 12H22"
                         stroke="white"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                       <path
                         d="M12 2C14.5013 4.73835 15.9228 8.29203 16 12C15.9228 15.708 14.5013 19.2616 12 22C9.49872 19.2616 8.07725 15.708 8 12C8.07725 8.29203 9.49872 4.73835 12 2V2Z"
                         stroke="white"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                     </svg>
                   </span>
@@ -554,23 +554,23 @@ export default function Home() {
                       <path
                         d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
                         stroke="white"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                       <path
                         d="M2 12H22"
                         stroke="white"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                       <path
                         d="M12 2C14.5013 4.73835 15.9228 8.29203 16 12C15.9228 15.708 14.5013 19.2616 12 22C9.49872 19.2616 8.07725 15.708 8 12C8.07725 8.29203 9.49872 4.73835 12 2V2Z"
                         stroke="white"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                     </svg>
                   </span>
@@ -617,23 +617,23 @@ export default function Home() {
                       <path
                         d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
                         stroke="white"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                       <path
                         d="M2 12H22"
                         stroke="white"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                       <path
                         d="M12 2C14.5013 4.73835 15.9228 8.29203 16 12C15.9228 15.708 14.5013 19.2616 12 22C9.49872 19.2616 8.07725 15.708 8 12C8.07725 8.29203 9.49872 4.73835 12 2V2Z"
                         stroke="white"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                     </svg>
                   </span>
