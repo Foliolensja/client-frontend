@@ -1,0 +1,22 @@
+.con {
+  display: flex;
+  padding-bottom: 20px;
+}
+
+.innerCon {
+  margin-left: 220px;
+  // margin-bottom: 20px;
+}
+
+.cFlex {
+  display: grid;
+  justify-content: space-between;
+  margin-top: 20px;
+  column-gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  margin-right: 20px;
+}
+
+.lFlex {
+  // max-width: 590px;
+}

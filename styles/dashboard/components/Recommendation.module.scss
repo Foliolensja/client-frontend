@@ -1,0 +1,26 @@
+.con {
+  // max-width: 590px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px rgba($color: #000000, $alpha: 0.08);
+  padding-bottom: 20px;
+
+  h2 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+    padding: 20px 0 8px 20px;
+  }
+
+  hr {
+    border-top: 1px solid #eaeaea;
+    margin: 0;
+  }
+}
+
+.innerCon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
