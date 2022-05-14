@@ -9,7 +9,7 @@ import { useSession, signIn, signOut, getToken } from "next-auth/react";
 import { useRouter } from "next/router";
 
 // import styles from "../../styles/dashboard/Dashboard.module.css";
-import styles from "../../styles/Home.module.css";
+import styles from "../../styles/Dashboard.module.css";
 
 
 console.log("help");
