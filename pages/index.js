@@ -85,10 +85,10 @@ export default function Home() {
         <header className={styles.con}>
           <div className={styles.innerCon}>
             <div>
-              <h1>See what's best for you</h1>
+              <h1>See what&apos;s best for you</h1>
               <p>
                 Start growing and protecting your money. Your hard earned cash
-                deserves better than risky, low-return investments. Let's help
+                deserves better than risky, low-return investments. Let&apos;s help
                 you.
               </p>
               <Link href={"/auth/signup"}>
@@ -391,7 +391,7 @@ export default function Home() {
             This harsh “more risk, more return” reality doesn&apos;t only mean the
             rich get richer. It also means there is no one perfect investment
             portfolio. A young, well-paid professional can afford a lot more
-            risk than a retiree on a tight budget—and that's OK. Their
+            risk than a retiree on a tight budget—and that&apos;s OK. Their
             portfolios look different because they are different and they have
             different situations in life. And since everyone&apos;s situation is
             different, everyone needs a different portfolio. We decided to
@@ -538,7 +538,7 @@ export default function Home() {
                 experience to the team, having been on the development teams for
                 many revolutionary tech products in the Caribbean space. Marlon
                 majored in computer science at the UWI Mona, and happens to be
-                quite the chef when he's not coding.
+                quite the chef when he&apos;s not coding.
               </p>
 
               <div className={styles.icons}>
@@ -599,7 +599,7 @@ export default function Home() {
                 users deserve, whether that be tweaking the UX, fixing bugs or
                 seeing how best to implement feedback that we get from our
                 stakeholders. He has an impressive portfolio of projects in
-                tech, understanding that ugly websites don't do anyone any good.
+                tech, understanding that ugly websites don&apos;t do anyone any good.
                 He studied computer science at the UWI Mona and is heavily
                 passionate about the latest technology and tech updates.
               </p>

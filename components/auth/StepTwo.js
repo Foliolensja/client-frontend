@@ -8,7 +8,7 @@ const StepTwo = ({ name }) => {
 
   return (
     <div>
-      <h1>Hi {name}</h1>
+      {/* <h1>Hi {name}</h1>
       <p className={styles.subtitle}>
         Now let's learn a bit more about you and how you invest
       </p>
@@ -37,7 +37,7 @@ const StepTwo = ({ name }) => {
         <div className={styles.submit}>
           <input type="submit" value="Continue" className={styles.btn} />
         </div>
-      </form>
+      </form> */}
     </div>
   );
 };

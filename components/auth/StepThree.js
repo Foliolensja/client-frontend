@@ -4,7 +4,7 @@ import styles from "../../styles/auth/Auth.module.css";
 const StepThree = () => {
   return (
     <div>
-      <h1>Let's get started</h1>
+      {/* <h1>Let's get started</h1>
       <p className={styles.subtitle}>
         To begin your FolioLens process, let's start by first learning your name
       </p>
@@ -24,7 +24,7 @@ const StepThree = () => {
             className={styles.btn}
           />
         </div>
-      </form>
+      </form> */}
     </div>
   );
 };
