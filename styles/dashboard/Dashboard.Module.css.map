@@ -2,8 +2,8 @@
     "version": 3,
     "mappings": "AAAA,AAAA,IAAI,CAAC;EACH,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,IAAI;CACrB;;AAED,AAAA,SAAS,CAAC;EACR,WAAW,EAAE,KAAK;CAEnB;;AAED,AAAA,MAAM,CAAC;EACL,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,aAAa;EAC9B,UAAU,EAAE,IAAI;EAChB,UAAU,EAAE,IAAI;EAChB,qBAAqB,EAAE,OAAO;EAC9B,YAAY,EAAE,IAAI;CACnB",
     "sources": [
-        "Dashboard.Module.scss"
+        "Dashboard.module.scss"
     ],
     "names": [],
-    "file": "Dashboard.Module.css"
+    "file": "Dashboard.module.css"
 }

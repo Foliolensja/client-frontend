@@ -16,6 +16,7 @@ export const Recommendation = () => {
 
     let cLabels = [];
     let cData = [];
+    console.log(pData);
 
     portfolio = pData.user.portfolio.indices;
 

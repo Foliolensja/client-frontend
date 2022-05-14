@@ -4,8 +4,13 @@ import { Pie } from "react-chartjs-2";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const Piechart = ({ cLabels, cData, options }) => {
+  let tLabels = []
+  for (let i = 0; i < cLabels.length; i++) {
+    tLabels.push("Ticker-" + cLabels[i]);
+    
+  }
   const data = {
-    labels: cLabels,
+    labels: tLabels,
 
     datasets: [
       {
@@ -14,7 +19,7 @@ const Piechart = ({ cLabels, cData, options }) => {
         options: {
           plugins: {
             legend: {
-              display: false,
+              display: true,
               labels: {
                 color: "rgb(255, 99, 132)",
               },
