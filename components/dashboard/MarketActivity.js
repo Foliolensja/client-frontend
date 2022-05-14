@@ -6,20 +6,26 @@ export const MarketActivity = ({ date }) => {
   const [activities, setActivities] = useState(null);
   const [actType, setActType] = useState("advancing");
   useEffect(async () => {
-    let res = await fetch(
-      `https://foliolens-backend.herokuapp.com/trading-days/${date}`
-    );
-    if (date) {
-      try {
-        let data = await res.json();
+    // let res = await fetch(
+    //   `https://foliolens-backend.herokuapp.com/trading-days/${date}`,
+    // );
+    // if (date) {
+    //   try {
+    //     let data = await res.json();
 
-        setActivities(data);
-      } catch (error) {
-        setActivities(null);
-      }
-    } else {
-      setActivities(null);
-    }
+    //     setActivities(data);
+    //   } catch (error) {
+    //     setActivities(null);
+    //   }
+    // } else {
+    //   setActivities(null);
+    // }
+    let res = await fetch(`../api/dashboard/activities`,{
+      method: "POST",
+      body: JSON.stringify({date: date}),
+    });
+    let pData = await res.json();
+    setActivities(pData.activities)
   }, [date]);
 
   let aTypes = ["advancing", "declining", "trading_firm"];

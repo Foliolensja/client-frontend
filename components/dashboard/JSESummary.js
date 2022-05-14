@@ -5,20 +5,28 @@ export const JSESummary = ({ date }) => {
   const [act, setAct] = useState(null);
   const [activities, setActivities] = useState(null);
   useEffect(async () => {
-    let res = await fetch(
-      `https://foliolens-backend.herokuapp.com/trading-days/${date}`
-    );
-    if (date) {
-      try {
-        let data = await res.json();
-        setActivities(data);
-      } catch (error) {
-        setActivities(null);
-        setAct(null);
-      }
-    } else {
-      setAct(null);
-    }
+    // let res = await fetch(
+    //   `https://foliolens-backend.herokuapp.com/trading-days/${date}`,{
+      
+    //   }
+    // );
+    // if (date) {
+    //   try {
+    //     let data = await res.json();
+    //     setActivities(data);
+    //   } catch (error) {
+    //     setActivities(null);
+    //     setAct(null);
+    //   }
+    // } else {
+    //   setAct(null);
+    // }
+    let res = await fetch(`../api/dashboard/activities`,{
+      method: "POST",
+      body: JSON.stringify({date: date}),
+    });
+    let pData = await res.json();
+    setActivities(pData.activities)
   }, [date]);
 
   useEffect(() => {
