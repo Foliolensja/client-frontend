@@ -1,0 +1,41 @@
+.con {
+  display: flex;
+  padding-bottom: 20px;
+}
+
+.innerCon {
+  margin-left: 220px;
+  // margin-bottom: 20px;
+}
+
+.cFlex {
+  width: calc(100vw - 240px);
+}
+
+.spacer {
+  height: 20px;
+}
+
+.sCon {
+  background-color: white;
+  padding: 16px;
+  overflow-x: hidden;
+  width: calc(100vw - 240px);
+  border-radius: 5px;
+  box-shadow: 0 1px 4px rgba($color: #000000, $alpha: 0.08);
+  margin: 0 0 20px 0;
+
+  h2 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+    padding-bottom: 9px;
+  }
+  input {
+    padding: 8px 24px;
+    border: 1px solid #eaeaea;
+    background-color: #fafafa;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+}

@@ -1,0 +1,34 @@
+.con {
+  min-width: 590px;
+  background-color: white;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  padding-bottom: 20px;
+  margin-top: 20px;
+}
+
+.con h2 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  padding: 20px 0 8px 20px;
+}
+
+.con hr {
+  border-top: 1px solid #eaeaea;
+  margin: 0;
+}
+
+.innerCon {
+  border: 1px solid #eaeaea;
+  border-radius: 5px;
+  background-color: #fafcfd;
+  margin: 20px 20px 0 20px;
+  padding: 12px;
+}
+
+.innerCon p {
+  line-height: 1.6;
+}
+/*# sourceMappingURL=JSESummary.module.css.map */

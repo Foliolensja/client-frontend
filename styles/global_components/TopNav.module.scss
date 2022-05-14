@@ -1,0 +1,24 @@
+.con {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 20px;
+
+  h1 {
+    font-size: 24px;
+  }
+  p {
+    font-size: 16px;
+  }
+}
+.flexCon {
+  display: flex;
+}
+.date {
+  padding: 4px 12px;
+  color: white;
+  background-color: #4c35e6;
+  border-radius: 5px;
+
+  font-weight: 600;
+  margin-left: 16px;
+}

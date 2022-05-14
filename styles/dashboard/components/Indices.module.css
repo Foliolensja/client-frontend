@@ -1,0 +1,65 @@
+.con {
+  background-color: white;
+  padding: 16px;
+  overflow-x: hidden;
+  width: calc(100vw - 240px);
+  border-radius: 5px;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.con h2 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  padding-bottom: 9px;
+}
+
+.innerCon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow-x: auto;
+}
+
+.indexCon {
+  background-color: #fafafa;
+  border: 1px solid #eaeaea;
+  border-radius: 5px;
+  padding: 8px;
+  margin-right: 12px;
+  min-width: 210px;
+}
+
+.indexCon p {
+  margin: 0 0 9px 0;
+}
+
+.spacer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.title {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.positive {
+  background-color: #25aa04;
+  color: white;
+  padding: 2px 12px;
+  border-radius: 2px;
+}
+
+.negative {
+  background-color: #d11a2a;
+  color: white;
+  padding: 2px 12px;
+  border-radius: 2px;
+}
+/*# sourceMappingURL=Indices.module.css.map */
