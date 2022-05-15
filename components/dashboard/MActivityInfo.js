@@ -16,7 +16,7 @@ export const MActivityInfo = ({ activity }) => {
       <p>{activity.c_price}</p>
       <p>{activity.price_change}</p>
       <p className={percentType ? styles.positive : styles.negative}>
-        {percentType ? "+" : ""} {activity.change}
+        {percentType ? "+" : ""} {activity.change}%
       </p>
     </div>
   );
