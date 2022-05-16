@@ -30,4 +30,28 @@
           align-items: center;
   padding: 40px;
 }
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.flex a {
+  margin-right: 20px;
+  background-color: #4c35e6;
+  padding: 8px 16px;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.flex a:hover {
+  background-color: #200bae;
+}
 /*# sourceMappingURL=Recommendation.module.css.map */

@@ -3,6 +3,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 
 import styles from "../../styles/dashboard/components/Recommendation.module.css";
 import Piechart from "./Piechart";
+import Link from "next/link";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export const Recommendation = () => {
@@ -21,8 +22,10 @@ export const Recommendation = () => {
     portfolio = pData.user.portfolio.indices;
 
     for (let i = 0; i < portfolio.length; i++) {
-      cLabels.push(portfolio[i].ticker);
-      cData.push(portfolio[i].weight);
+      if (portfolio[i].weight * 100 > 1) {
+        cLabels.push(portfolio[i].ticker);
+        cData.push((portfolio[i].weight * 100).toFixed(2));
+      }
       // console.log(cLabels);
     }
 
@@ -39,7 +42,12 @@ export const Recommendation = () => {
   };
   return (
     <div className={styles.con}>
-      <h2>Personalized Suggestions</h2>
+      <div className={styles.flex}>
+        <h2>Personalized Suggestions</h2>
+        <Link href={"dashboard/suggestions"}>
+          <a>View Portfolio Breakdown</a>
+        </Link>
+      </div>
       <hr />
       <div className={styles.innerCon}>
         {pData && (

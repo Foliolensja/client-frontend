@@ -1,0 +1,11 @@
+.con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-bottom: 20px;
+}
+
+.innerCon {
+  margin-left: 220px;
+}
+/*# sourceMappingURL=Settings.module.css.map */

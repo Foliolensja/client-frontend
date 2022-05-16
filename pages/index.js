@@ -88,8 +88,8 @@ export default function Home() {
               <h1>See what&apos;s best for you</h1>
               <p>
                 Start growing and protecting your money. Your hard earned cash
-                deserves better than risky, low-return investments. Let&apos;s help
-                you.
+                deserves better than risky, low-return investments. Let&apos;s
+                help you.
               </p>
               <Link href={"/auth/signup"}>
                 <a className={styles.btn}>Get started for free</a>
@@ -388,14 +388,14 @@ export default function Home() {
             losing your hard-earned cash. Fun? No way.
           </p>
           <p>
-            This harsh “more risk, more return” reality doesn&apos;t only mean the
-            rich get richer. It also means there is no one perfect investment
-            portfolio. A young, well-paid professional can afford a lot more
-            risk than a retiree on a tight budget—and that&apos;s OK. Their
-            portfolios look different because they are different and they have
-            different situations in life. And since everyone&apos;s situation is
-            different, everyone needs a different portfolio. We decided to
-            create something that provides just that.
+            This harsh “more risk, more return” reality doesn&apos;t only mean
+            the rich get richer. It also means there is no one perfect
+            investment portfolio. A young, well-paid professional can afford a
+            lot more risk than a retiree on a tight budget—and that&apos;s OK.
+            Their portfolios look different because they are different and they
+            have different situations in life. And since everyone&apos;s
+            situation is different, everyone needs a different portfolio. We
+            decided to create something that provides just that.
           </p>
         </div>
       </main>
@@ -464,17 +464,17 @@ export default function Home() {
           <div className={styles.card_con}>
             {/* Jason */}
             <div className={styles.card}>
-              <h3>Jason Decambre</h3>
+              <h3>Jason DeCambre</h3>
               <p className={styles.title}>Co-founder</p>
               <p>
                 Jason handles the math and AI backend at FolioLens. While
                 serving as the Director of Investor Information at the UWI Young
-                Investors&apos; Club, he realized that lots of hardworking persons&apos;
-                money gets lost in Jamaica because of poor financial literacy.
-                So he wanted to leverage 21st century technology to address that
-                problem. He studied computer science and economics at the UWI
-                Mona, and likes to play guitar, paint and try new dishes from
-                around the world in his free time.
+                Investors&apos; Club, he realized that lots of hardworking
+                persons&apos; money gets lost in Jamaica because of poor
+                financial literacy. So he wanted to leverage 21st century
+                technology to address that problem. He studied computer science
+                and economics at the UWI Mona, and likes to play guitar, paint
+                and try new dishes from around the world in his free time.
               </p>
 
               <div className={styles.icons}>
@@ -599,8 +599,8 @@ export default function Home() {
                 users deserve, whether that be tweaking the UX, fixing bugs or
                 seeing how best to implement feedback that we get from our
                 stakeholders. He has an impressive portfolio of projects in
-                tech, understanding that ugly websites don&apos;t do anyone any good.
-                He studied computer science at the UWI Mona and is heavily
+                tech, understanding that ugly websites don&apos;t do anyone any
+                good. He studied computer science at the UWI Mona and is heavily
                 passionate about the latest technology and tech updates.
               </p>
 
