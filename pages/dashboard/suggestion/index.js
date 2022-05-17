@@ -156,9 +156,10 @@ const Track = () => {
     let hTag = <p className={`${styles.tag} ${styles.negative}`}>High</p>;
     let mTag = <p className={`${styles.tag}`}>Moderate</p>;
     let lTag = <p className={`${styles.tag} ${styles.positive}`}>Low</p>;
-    if (riskLevel > 1.1) {
+
+    if (risk > 7) {
       setRiskRange(hTag);
-    } else if (riskLevel > 0.7) {
+    } else if (risk > 4) {
       setRiskRange(mTag);
     } else {
       setRiskRange(lTag);
