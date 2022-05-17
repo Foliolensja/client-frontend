@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Foliolens</title>
+        <title>FolioLens</title>
         <meta name="description" content="Foliolens" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

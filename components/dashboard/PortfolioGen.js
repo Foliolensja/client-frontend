@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import styles from "../../styles/dashboard/components/Recommendation.module.css";
 const PortfolioGen = ({ user, setUser }) => {
   const [gen, isGen] = useState(true);
-  const [test, setTest] = useState("Portfolio is generating. Please wait");
+  const [test, setTest] = useState(
+    "Portfolio is generating. This process usually takes around 3-5 minutes. Please wait"
+  );
 
   useEffect(() => {
     let i = 0;
