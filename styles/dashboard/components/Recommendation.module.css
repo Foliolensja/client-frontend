@@ -54,4 +54,35 @@
 .flex a:hover {
   background-color: #200bae;
 }
+
+.genCon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.genCon p {
+  margin: 0 0 24px 0;
+}
+
+.genCon button {
+  background-color: #4c35e6;
+  padding: 12px 24px;
+  font-size: 16px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+
+.genCon button:hover {
+  background-color: #200bae;
+  cursor: pointer;
+}
 /*# sourceMappingURL=Recommendation.module.css.map */

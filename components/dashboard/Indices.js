@@ -5,33 +5,14 @@ import styles from "../../styles/dashboard/components/Indices.module.css";
 export const Indices = ({ date }) => {
   const [indices, setIndices] = useState(null);
   const [indexNames, setIndexNames] = useState([]);
-  console.log(date);
+
   useEffect(async () => {
-    // let res = await fetch(
-    //   `https://foliolens-backend.herokuapp.com/indices/${date}`,
-    // );
-    // if (res.ok) {
-    //   if (date) {
-    //     try {
-    //       let data = await res.json();
-    //       console.log(date);
-    //       setIndices(data);
-    //     } catch (error) {
-    //       console.log("Can't find data");
-    //       setIndices(null);
-    //     }
-    //   } else {
-    //     setIndices(null);
-    //   }
-    // } else {
-    // }
-    let res = await fetch(`../api/dashboard/indices`,{
+    let res = await fetch(`../api/dashboard/indices`, {
       method: "POST",
-      body: JSON.stringify({date: date}),
+      body: JSON.stringify({ date: date }),
     });
     let pData = await res.json();
-    // console.log(pData.indices);
-    setIndices(pData.indices)
+    setIndices(pData.indices);
   }, [date]);
 
   useEffect(() => {

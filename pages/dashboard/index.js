@@ -11,14 +11,10 @@ import { useRouter } from "next/router";
 // import styles from "../../styles/dashboard/Dashboard.module.css";
 import styles from "../../styles/Dashboard.module.css";
 
-
-console.log("help");
 const Dashboard = () => {
   const { data: session } = useSession();
   const [name, setName] = useState("");
   const router = useRouter();
-  console.log(session);
-  
 
   useEffect(() => {
     let url = `${window.location.origin}/auth/login`;

@@ -42,3 +42,25 @@
     }
   }
 }
+
+.genCon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  p {
+    margin: 0 0 24px 0;
+  }
+  button {
+    background-color: #4c35e6;
+    padding: 12px 24px;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    &:hover {
+      background-color: #200bae;
+      cursor: pointer;
+    }
+  }
+}

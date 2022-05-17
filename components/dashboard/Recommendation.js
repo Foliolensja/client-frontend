@@ -4,11 +4,14 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import styles from "../../styles/dashboard/components/Recommendation.module.css";
 import Piechart from "./Piechart";
 import Link from "next/link";
+import GeneratePortfolio from "./GeneratePortfolio";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export const Recommendation = () => {
   const [pData, setPData] = useState([]);
   const [pLabels, setPLabels] = useState([]);
+  const [generating, setGenerating] = useState(false);
+  const [user, setUser] = useState({});
   let portfolio = {};
 
   useEffect(async () => {
@@ -19,16 +22,16 @@ export const Recommendation = () => {
     let cData = [];
     console.log(pData);
 
-    portfolio = pData.user.portfolio.indices;
+    portfolio = pData.user.portfolio?.indices;
 
-    for (let i = 0; i < portfolio.length; i++) {
+    for (let i = 0; i < portfolio?.length; i++) {
       if (portfolio[i].weight * 100 > 1) {
         cLabels.push(portfolio[i].ticker);
         cData.push((portfolio[i].weight * 100).toFixed(2));
       }
       // console.log(cLabels);
     }
-
+    setUser(pData.user);
     setPData(cData);
     setPLabels(cLabels);
   }, []);
@@ -40,18 +43,23 @@ export const Recommendation = () => {
       },
     },
   };
+  // console.log(user);
   return (
     <div className={styles.con}>
       <div className={styles.flex}>
         <h2>Personalized Suggestions</h2>
-        <Link href={"dashboard/suggestions"}>
+        <Link href={"dashboard/suggestion"}>
           <a>View Portfolio Breakdown</a>
         </Link>
       </div>
       <hr />
       <div className={styles.innerCon}>
-        {pData && (
+        {pData.length ? (
           <Piechart cData={pData} cLabels={pLabels} options={options} />
+        ) : generating ? (
+          <p>Please wait while your portfolio</p>
+        ) : (
+          <GeneratePortfolio user={user} />
         )}
       </div>
     </div>
