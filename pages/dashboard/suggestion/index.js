@@ -209,7 +209,7 @@ const Track = () => {
                 <p>{test}</p>
               ) : (
                 <div className={styles.flexSpace}>
-                  <p>Don't like your portfolio? Create a new one </p>
+                  <p>Do not like your portfolio? Create a new one </p>
                   <button
                     onClick={() => {
                       generatePortfolio();
