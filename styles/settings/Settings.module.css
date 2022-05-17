@@ -133,7 +133,7 @@
 
 .form input {
   display: block;
-  width: 80%;
+  width: 100%;
   border: 1px solid #eaeaea;
   padding: 12px 20px;
   border-radius: 5px;
@@ -253,5 +253,62 @@
 
 .img_con div .active {
   background-color: #4c35e6;
+}
+
+.flex_con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 12px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 24px;
+}
+
+.flex_con p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.status {
+  margin-left: 16px;
+  background-color: #09a155;
+  border: 1px solid #008060;
+  color: #fff;
+  margin-bottom: 16px;
+  padding: 8px 24px;
+  border-radius: 5px;
+}
+
+.topFlex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 4px 24px;
+  margin: 12px;
+  background-color: #fafcfd;
+  border-radius: 5px;
+  border: 1px solid #eaeaea;
+}
+
+.topFlex button {
+  background-color: #4c35e6;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.topFlex button:hover {
+  background-color: #1a17a7;
+  cursor: pointer;
 }
 /*# sourceMappingURL=Settings.module.css.map */

@@ -1,13 +1,23 @@
 export default async function handler(req, res) {
   let person = {};
   let user = JSON.parse(req.body);
-  console.log(user);
+  let payload = {
+    email: user.email,
+    firstName: user.firstName,
+    lastName: user.lastName,
+    dob: user.dob,
+    salary: user.salary,
+    netWorth: user.netWorth,
+    riskRating: user.riskRating,
+  };
+
+  console.log(payload);
   try {
     const test = await fetch(
-      "https://foliolens-backend.herokuapp.com/portfolios/generate-portfolio",
+      `https://foliolens-backend.herokuapp.com/users/${user.id}`,
       {
         method: "POST",
-        body: JSON.stringify(user),
+        body: JSON.stringify(payload),
         headers: {
           "Content-Type": "application/json",
           "Accept-Language": "en-US",
@@ -24,7 +34,7 @@ export default async function handler(req, res) {
       res.status(403).json({ status: data.message });
     }
 
-    res.status(200).json({ status: "Started to generate the portfolio" });
+    res.status(200).json({ status: "User successfully updated" });
   } catch (error) {
     res.status(403).json({ status: error });
   }

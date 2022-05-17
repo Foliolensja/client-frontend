@@ -14,9 +14,15 @@ export default function Settings() {
   const [dob, setDob] = useState("");
   const [salary, setSalary] = useState(0);
   const [networth, setNetworth] = useState(0);
-  const [risk, setRisk] = useState(5);
+  const [risk, setRisk] = useState(0);
+  const [email, setEmail] = useState("");
+  const [id, setId] = useState("");
   const [mode, setMode] = useState(true);
+  const [sent, setSent] = useState(false);
+  const [updated, setUpdated] = useState(false);
+  const [generating, setGenerating] = useState(true);
   const router = useRouter();
+
   const { data: session } = useSession();
 
   useEffect(async () => {
@@ -31,7 +37,50 @@ export default function Settings() {
     setNetworth(user.netWorth);
     setSalary(user.salary);
     setRisk(user.riskRating);
+    setEmail(user.email);
+    setId(user.id);
   }, []);
+
+  useEffect(async () => {
+    let res = await fetch("../api/user/me");
+    let pData = await res.json();
+    let user = pData.user;
+    if (sent) {
+      if (user.updated) {
+        setUpdated(true);
+        setGenerating(false);
+      }
+    }
+  }, [sent]);
+
+  const cAge = (dob) => {
+    dob = new Date(dob);
+    var diff_ms = Date.now() - dob.getTime();
+    var age_dt = new Date(diff_ms);
+
+    return Math.abs(age_dt.getUTCFullYear() - 1970);
+  };
+
+  const generatePortfolio = async () => {
+    let uAge = cAge(dob);
+    let payload = {
+      age: uAge,
+      net_worth: networth,
+      salary: salary,
+      reported_risk: risk,
+      userId: id,
+    };
+    try {
+      let res = await fetch("../api/dashboard/generate", {
+        method: "POST",
+        body: JSON.stringify(payload),
+      });
+      let data = await res.json();
+      console.log(data);
+      setGenerating(true);
+      setSent(false);
+    } catch (error) {}
+  };
 
   let options = {
     weekday: "long",
@@ -40,6 +89,31 @@ export default function Settings() {
     day: "numeric",
   };
   let today = new Date();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    let person = {
+      email,
+      firstName,
+      lastName,
+      dob,
+      salary: parseFloat(salary),
+      netWorth: parseFloat(networth),
+      riskRating: parseInt(risk),
+      id,
+    };
+
+    try {
+      let res = await fetch("../api/user/updateme", {
+        method: "POST",
+        body: JSON.stringify(person),
+      });
+      let data = await res.json();
+      console.log(data);
+    } catch (error) {}
+
+    setSent(true);
+  };
 
   return (
     <div className={styles.con}>
@@ -59,21 +133,43 @@ export default function Settings() {
               <span className={`${styles.section_sel}`}>Change Password</span>
             </div>
 
+            {updated && !generating && (
+              <div className={styles.topFlex}>
+                <p>
+                  Seems you have recently updated your portfolio, you do want to
+                  regenerate your portfolio
+                </p>
+                <button
+                  onClick={() => {
+                    generatePortfolio();
+                  }}
+                >
+                  Regenerate Portfolio
+                </button>
+              </div>
+            )}
+
             {/* Form */}
             <form
               onSubmit={(e) => handleSubmit(e)}
               className={`${styles.form}`}
             >
-              {/* <div> */}
-              <label className={styles.switch}>
-                <input
-                  type="checkbox"
-                  onChange={() => setMode(!mode)}
-                  value={!mode}
-                />
-                <span className={`${styles.slider} ${styles.round}`}></span>
-              </label>
-              {/* </div> */}
+              <div className={styles.flex_con}>
+                <label className={styles.switch}>
+                  <input
+                    type="checkbox"
+                    onChange={() => setMode(!mode)}
+                    value={!mode}
+                  />
+                  <span className={`${styles.slider} ${styles.round}`}></span>
+                </label>
+                <p>Enable editing</p>
+              </div>
+              {sent && (
+                <div className={styles.status}>
+                  <p>Your profile has been successfully updated</p>
+                </div>
+              )}
               <fieldset disabled={mode}>
                 <label htmlFor="">First name</label>
                 {/* <input name="csrfToken" type="hidden" defaultValue={csrfToken} /> */}
@@ -104,7 +200,7 @@ export default function Settings() {
                   }}
                   required={true}
                 />
-                <label>Networth</label>
+                <label>Net worth</label>
                 <input
                   type="number"
                   value={networth}
@@ -139,7 +235,7 @@ export default function Settings() {
                   <p>Very High</p>
                 </div>
                 <div className={styles.submit}>
-                  <input type="submit" value="Sign Up" className={styles.btn} />
+                  <input type="submit" value="Update" className={styles.btn} />
                 </div>
               </fieldset>
             </form>
