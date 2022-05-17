@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../../styles/dashboard/components/Recommendation.module.css";
 
-const GeneratePortfolio = ({ user }) => {
+const GeneratePortfolio = ({ user, setGenerating }) => {
   const cAge = (dob) => {
     dob = new Date(dob);
     var diff_ms = Date.now() - dob.getTime();
@@ -25,6 +25,7 @@ const GeneratePortfolio = ({ user }) => {
       });
       let data = await res.json();
       console.log(data);
+      setGenerating(true);
     } catch (error) {}
   };
 

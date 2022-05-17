@@ -32,6 +32,7 @@ export const Recommendation = () => {
       // console.log(cLabels);
     }
     setUser(pData.user);
+    setGenerating(pData.user.generating);
     setPData(cData);
     setPLabels(cLabels);
   }, []);
@@ -59,7 +60,7 @@ export const Recommendation = () => {
         ) : generating ? (
           <p>Please wait while your portfolio</p>
         ) : (
-          <GeneratePortfolio user={user} />
+          <GeneratePortfolio user={user} setGenerating={setGenerating} />
         )}
       </div>
     </div>

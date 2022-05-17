@@ -4,7 +4,7 @@ export default async function handler(req, res) {
   console.log(user);
   try {
     const test = await fetch(
-      "https://foliolens-backend.herokuapp.com/portfolios/test",
+      "https://foliolens-backend.herokuapp.com/portfolios/generate-portfolio",
       {
         method: "POST",
         body: JSON.stringify(user),
@@ -14,6 +14,10 @@ export default async function handler(req, res) {
         },
       }
     );
+
+    // const genTest = await fetch("https://foliolens-backend.herokuapp.com/portfolios/generate-portfolio")
+    // const genTest = await fetch("https://foliolens-backend.herokuapp.com/portfolios/generate-portfolio")
+
     let data = await test.json();
     console.log(data);
     if (data.statusCode === 403) {
@@ -22,6 +26,6 @@ export default async function handler(req, res) {
 
     res.status(200).json({ status: "Started to generate the portfolio" });
   } catch (error) {
-    res.status(403).json({ status: "Could not generate" });
+    res.status(403).json({ status: error });
   }
 }
