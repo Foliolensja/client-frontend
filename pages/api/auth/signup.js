@@ -18,7 +18,7 @@ export default async function handler(req, res) {
     if (data.statusCode === 403) {
       res.status(403).json({ status: data.message });
     }
-    if (data.statusCode === 201) {
+    if (data?.access_token) {
       res.status(200).json({ status: "User successfully created" });
     }
   } catch (error) {

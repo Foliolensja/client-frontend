@@ -41,7 +41,7 @@ export default function Login({ csrfToken }) {
     } else if (Number.parseFloat(networth) < Number.parseFloat(salary)) {
       console.log("Your net worth cannot be less than your average salary");
       setError(true);
-      setErrorText("Your net worth cannot be less than your average salary");
+      setErrorText("Your net worth cannot be less than your annual salary");
     } else if (networth == 0) {
       console.log("Your net worth cannot be 0 dollars");
       setError(true);
