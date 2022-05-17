@@ -22,9 +22,6 @@ export default function Login({ csrfToken }) {
   const router = useRouter();
   const { data: session } = useSession();
 
-  // useEffect(() => {
-  //   console.log(risk);
-  // }, [risk]);
   useEffect(() => {
     let url = `${window.location.origin}/dashboard`;
     if (session) {
@@ -259,11 +256,13 @@ export default function Login({ csrfToken }) {
           <p className={styles.sublabel}>
             How much risk are you willing to take
           </p>
+          <p>Risk Level: {risk}</p>
           <div className={styles.flex}>
             <p>Very Low</p>
             <div className={` ${styles.w_c}`}>
               <input
                 type="range"
+                id="range"
                 min={0}
                 max={10}
                 value={risk}

@@ -240,6 +240,7 @@ export default function Settings() {
                     <p className={styles.sublabel}>
                       How much risk are you willing to take
                     </p>
+                    <p>Risk Level: {risk}</p>
                     <div className={styles.flex}>
                       <p>Very Low</p>
                       <div className={` ${styles.w_c}`}>

@@ -8,7 +8,7 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(false);
   const { data: session } = useSession();
   let created = router.query;
 
@@ -41,6 +41,9 @@ export default function Login() {
       callbackUrl: `${window.location.origin}/dashboard`,
     });
     console.log(res);
+    if (res.error) {
+      setError(true);
+    }
     if (res.url) router.push(res.url);
   };
 
@@ -158,12 +161,22 @@ export default function Login() {
           </div> */}
           </div>
           <h1>Welcome Back!</h1>
-          {created ? (
+          {error && (
+            <p className={`${styles.subtitle} ${styles.errorStatus}`}>
+              Your Email or Password is incorrect try again
+            </p>
+          )}
+
+          {!error && created ? (
             <p className={`${styles.subtitle} ${styles.success}`}>
               Your account has been created successfully, please login
             </p>
           ) : (
-            <p className={styles.subtitle}>Login to continue using Foliolens</p>
+            !error && (
+              <p className={styles.subtitle}>
+                Login to continue using Foliolens
+              </p>
+            )
           )}
 
           <form
