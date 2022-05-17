@@ -65,13 +65,13 @@ export default function Settings() {
               className={`${styles.form}`}
             >
               {/* <div> */}
-              <label class={styles.switch}>
+              <label className={styles.switch}>
                 <input
                   type="checkbox"
                   onChange={() => setMode(!mode)}
                   value={!mode}
                 />
-                <span class={`${styles.slider} ${styles.round}`}></span>
+                <span className={`${styles.slider} ${styles.round}`}></span>
               </label>
               {/* </div> */}
               <fieldset disabled={mode}>
