@@ -198,12 +198,49 @@
 }
 
 .positive {
-  background-color: #25AA04;
+  background-color: #25aa04;
   color: #fff;
 }
 
 .negative {
-  background-color: #D11A2A;
+  background-color: #d11a2a;
   color: #fff;
+}
+
+.regCon {
+  min-width: 300px;
+  background-color: white;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  padding: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 20px;
+}
+
+.regCon p {
+  margin-left: 20px;
+}
+
+.regCon button {
+  margin-right: 20px;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  background-color: #4c35e6;
+  color: #fff;
+  cursor: pointer;
+}
+
+.regCon button:hover {
+  background-color: #2f1ca8;
 }
 /*# sourceMappingURL=Suggestions.module.css.map */

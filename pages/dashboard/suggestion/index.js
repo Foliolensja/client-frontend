@@ -19,14 +19,6 @@ export const options = {
   },
 };
 
-const cAge = (dob) => {
-  dob = new Date(dob);
-  var diff_ms = Date.now() - dob.getTime();
-  var age_dt = new Date(diff_ms);
-
-  return Math.abs(age_dt.getUTCFullYear() - 1970);
-};
-
 const Track = () => {
   const [portfolio, setPortfolio] = useState([]);
   const [name, setName] = useState("");
@@ -35,8 +27,73 @@ const Track = () => {
   const [cValue, setCValue] = useState("");
   const [riskRange, setRiskRange] = useState("");
   const [growth, setGrowth] = useState("");
+  const [user, setUser] = useState({});
+  const [test, setTest] = useState("Portfolio is generating. Please wait");
+
+  const cAge = (dob) => {
+    dob = new Date(dob);
+    var diff_ms = Date.now() - dob.getTime();
+    var age_dt = new Date(diff_ms);
+
+    return Math.abs(age_dt.getUTCFullYear() - 1970);
+  };
+
+  const generatePortfolio = async () => {
+    let age = cAge(user.dob);
+    let payload = {
+      age,
+      net_worth: user.netWorth,
+      salary: user.salary,
+      reported_risk: user.riskRating,
+      userId: user.id,
+    };
+    try {
+      let res = await fetch("../api/dashboard/generate", {
+        method: "POST",
+        body: JSON.stringify(payload),
+      });
+      let data = await res.json();
+      console.log(data);
+      setGenerating(true);
+    } catch (error) {}
+  };
 
   let testData = {};
+  let options = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  let today = new Date();
+
+  useEffect(() => {
+    let i = 0;
+    let dots = ".";
+    let seconds = 0;
+
+    setInterval(async () => {
+      if (seconds % 30 == 0) {
+        let res = await fetch("../api/user/me");
+        let pData = await res.json();
+
+        let testUser = pData.user;
+        if (testUser?.generating === false) {
+          setUser(pData.user);
+        }
+      }
+      i = i + 1;
+      if (i >= 3) {
+        dots = "";
+        setTest(test + " " + dots);
+        i = 0;
+      } else {
+        dots = dots + ".";
+        setTest(test + " " + dots);
+      }
+      seconds = seconds + 1;
+    }, 1000);
+  }, []);
 
   useEffect(async () => {
     let res = await fetch("../api/user/me");
@@ -97,6 +154,7 @@ const Track = () => {
     setPortfolio(pData.user.portfolio?.indices);
     setLData(tData);
     setLabels(tLabels);
+    setUser(pData.user);
   }, []);
 
   // useEffect(()=>{
@@ -119,7 +177,7 @@ const Track = () => {
       <div className={styles.innerCon}>
         <TopNav
           sectionName="Portfolio Breakdown"
-          date="Thursday February 11, 2022"
+          date={today.toLocaleDateString("en-US", options)}
           username={name}
         />
         <div className={styles.cFlex}>
@@ -142,6 +200,16 @@ const Track = () => {
             </div>
           </div>
           <div className="">
+            <div className={styles.regCon}>
+              <p>Don't like your portfolio? Create a new one </p>
+              <button
+                onClick={() => {
+                  generatePortfolio();
+                }}
+              >
+                Regenerate Portfolio
+              </button>
+            </div>
             <div className={styles.sCon}>
               <p>
                 This would have been your portfolio growth if you invested{" "}
