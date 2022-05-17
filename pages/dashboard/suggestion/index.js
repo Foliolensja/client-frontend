@@ -29,6 +29,7 @@ const Track = () => {
   const [growth, setGrowth] = useState("");
   const [user, setUser] = useState({});
   const [test, setTest] = useState("Portfolio is generating. Please wait");
+  const [gen, isGen] = useState(false);
 
   const cAge = (dob) => {
     dob = new Date(dob);
@@ -72,28 +73,31 @@ const Track = () => {
     let dots = ".";
     let seconds = 0;
 
-    setInterval(async () => {
-      if (seconds % 30 == 0) {
-        let res = await fetch("../api/user/me");
-        let pData = await res.json();
+    if (user?.generating) {
+      setInterval(async () => {
+        if (seconds % 30 == 0) {
+          let res = await fetch("../api/user/me");
+          let pData = await res.json();
 
-        let testUser = pData.user;
-        if (testUser?.generating === false) {
-          setUser(pData.user);
+          let testUser = pData.user;
+          if (testUser?.generating === false) {
+            setUser(pData.user);
+            setGen(false);
+          }
         }
-      }
-      i = i + 1;
-      if (i >= 3) {
-        dots = "";
-        setTest(test + " " + dots);
-        i = 0;
-      } else {
-        dots = dots + ".";
-        setTest(test + " " + dots);
-      }
-      seconds = seconds + 1;
-    }, 1000);
-  }, []);
+        i = i + 1;
+        if (i >= 3) {
+          dots = "";
+          setTest(test + " " + dots);
+          i = 0;
+        } else {
+          dots = dots + ".";
+          setTest(test + " " + dots);
+        }
+        seconds = seconds + 1;
+      }, 1000);
+    }
+  }, [gen]);
 
   useEffect(async () => {
     let res = await fetch("../api/user/me");
@@ -201,14 +205,20 @@ const Track = () => {
           </div>
           <div className="">
             <div className={styles.regCon}>
-              <p>Don't like your portfolio? Create a new one </p>
-              <button
-                onClick={() => {
-                  generatePortfolio();
-                }}
-              >
-                Regenerate Portfolio
-              </button>
+              {gen ? (
+                <p>{test}</p>
+              ) : (
+                <div className={styles.flexSpace}>
+                  <p>Don't like your portfolio? Create a new one </p>
+                  <button
+                    onClick={() => {
+                      generatePortfolio();
+                    }}
+                  >
+                    Regenerate Portfolio
+                  </button>
+                </div>
+              )}
             </div>
             <div className={styles.sCon}>
               <p>

@@ -182,9 +182,9 @@
   p {
     margin-left: 20px;
   }
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  // display: flex;
+  // justify-content: space-between;
+  // align-items: center;
   margin-bottom: 20px;
 
   button {
@@ -199,4 +199,10 @@
       background-color: #2f1ca8;
     }
   }
+}
+
+.flexSpace {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
