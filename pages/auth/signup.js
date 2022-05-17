@@ -17,6 +17,8 @@ export default function Login({ csrfToken }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [cPassword, setCPassword] = useState("");
+  const [error, setError] = useState(false);
+  const [errorText, setErrorText] = useState("");
   const router = useRouter();
   const { data: session } = useSession();
 
@@ -34,6 +36,20 @@ export default function Login({ csrfToken }) {
     e.preventDefault();
     if (password !== cPassword) {
       console.log("Password not the same");
+      setError(true);
+      setErrorText("Password and Confirm Password not the same");
+    } else if (Number.parseFloat(networth) < Number.parseFloat(salary)) {
+      console.log("Your net worth cannot be less than your average salary");
+      setError(true);
+      setErrorText("Your net worth cannot be less than your average salary");
+    } else if (networth == 0) {
+      console.log("Your net worth cannot be 0 dollars");
+      setError(true);
+      setErrorText("Your net worth cannot be 0 dollars");
+    } else if (salary == 0) {
+      console.log("Your salary cannot be 0 dollars");
+      setError(true);
+      setErrorText("Your salary cannot be 0 dollars");
     } else {
       let person = {
         email,
@@ -55,6 +71,11 @@ export default function Login({ csrfToken }) {
         });
         let data = await res.json();
         console.log(data);
+        if (data?.status == "Credentials taken") {
+          setError(true);
+          setErrorText("Email already taken");
+          return;
+        }
         router.push({
           pathname: "/auth/login",
           query: {
@@ -183,6 +204,8 @@ export default function Login({ csrfToken }) {
           </div>
         </div>
 
+        {error && <p className={styles.errorStatus}>{errorText}</p>}
+
         {/* Steps */}
         {/* <StepOne />
         <StepTwo />
@@ -218,7 +241,7 @@ export default function Login({ csrfToken }) {
             }}
             required={true}
           />
-          <label>Networth</label>
+          <label>Net Worth</label>
           <input
             type="number"
             value={networth}
@@ -241,7 +264,7 @@ export default function Login({ csrfToken }) {
             <div className={` ${styles.w_c}`}>
               <input
                 type="range"
-                min={1}
+                min={0}
                 max={10}
                 value={risk}
                 onChange={(e) => {

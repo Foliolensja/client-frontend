@@ -198,4 +198,15 @@
 .img_con div .active {
   background-color: #4c35e6;
 }
+
+.errorStatus {
+  background-color: #cc0000;
+  color: #fff;
+  border-radius: 5px;
+  padding: 8px 24px;
+}
+
+.errorStatus p {
+  font-size: 16px;
+}
 /*# sourceMappingURL=Auth.module.css.map */

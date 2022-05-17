@@ -21,6 +21,7 @@ export default function Settings() {
   const [sent, setSent] = useState(false);
   const [updated, setUpdated] = useState(false);
   const [generating, setGenerating] = useState(true);
+  const [active, setActive] = useState(true);
   const router = useRouter();
 
   const { data: session } = useSession();
@@ -122,124 +123,150 @@ export default function Settings() {
         <TopNav
           sectionName="Portfolio"
           date={today.toLocaleDateString("en-US", options)}
-          username={"name"}
+          username={firstName}
         />
         <div className={styles.cFlex}>
           <div className={styles.sCon}>
             <div className={`${styles.section_tab}`}>
-              <span className={`${styles.section_sel} ${styles.bl}`}>
+              <span
+                className={`${styles.section_sel} ${styles.bl} ${
+                  active ? styles.active : ""
+                }`}
+                onClick={() => {
+                  setActive(!active);
+                }}
+              >
                 Profile Info
               </span>
-              <span className={`${styles.section_sel}`}>Change Password</span>
+              <span
+                className={`${styles.section_sel}  ${
+                  active ? "" : styles.active
+                }`}
+                onClick={() => {
+                  setActive(!active);
+                }}
+              >
+                Change Password
+              </span>
             </div>
+            {/* Profile Info Tab */}
 
-            {updated && !generating && (
-              <div className={styles.topFlex}>
-                <p>
-                  Seems you have recently updated your portfolio, you do want to
-                  regenerate your portfolio
-                </p>
-                <button
-                  onClick={() => {
-                    generatePortfolio();
-                  }}
+            {active && (
+              <div>
+                {updated && !generating && (
+                  <div className={styles.topFlex}>
+                    <p>
+                      Seems you have recently updated your portfolio, you do
+                      want to regenerate your portfolio
+                    </p>
+                    <button
+                      onClick={() => {
+                        generatePortfolio();
+                      }}
+                    >
+                      Regenerate Portfolio
+                    </button>
+                  </div>
+                )}
+
+                {/* Form */}
+                <form
+                  onSubmit={(e) => handleSubmit(e)}
+                  className={`${styles.form}`}
                 >
-                  Regenerate Portfolio
-                </button>
-              </div>
-            )}
-
-            {/* Form */}
-            <form
-              onSubmit={(e) => handleSubmit(e)}
-              className={`${styles.form}`}
-            >
-              <div className={styles.flex_con}>
-                <label className={styles.switch}>
-                  <input
-                    type="checkbox"
-                    onChange={() => setMode(!mode)}
-                    value={!mode}
-                  />
-                  <span className={`${styles.slider} ${styles.round}`}></span>
-                </label>
-                <p>Enable editing</p>
-              </div>
-              {sent && (
-                <div className={styles.status}>
-                  <p>Your profile has been successfully updated</p>
-                </div>
-              )}
-              <fieldset disabled={mode}>
-                <label htmlFor="">First name</label>
-                {/* <input name="csrfToken" type="hidden" defaultValue={csrfToken} /> */}
-                <input
-                  type="text"
-                  value={firstName}
-                  onChange={(e) => {
-                    setFirstName(e.target.value);
-                  }}
-                  required={true}
-                />
-                <label>Last name</label>
-                <input
-                  type="text"
-                  value={lastName}
-                  onChange={(e) => {
-                    setLastName(e.target.value);
-                  }}
-                  required={true}
-                />
-
-                <label>Date of Birth</label>
-                <input
-                  type="date"
-                  value={dob}
-                  onChange={(e) => {
-                    setDob(e.target.value);
-                  }}
-                  required={true}
-                />
-                <label>Net worth</label>
-                <input
-                  type="number"
-                  value={networth}
-                  onChange={(e) => setNetworth(e.target.value)}
-                  required={true}
-                />
-                <label>Salary</label>
-                <input
-                  type="number"
-                  value={salary}
-                  onChange={(e) => setSalary(e.target.value)}
-                  required={true}
-                />
-                <label>Risk Appetite</label>
-                <p className={styles.sublabel}>
-                  How much risk are you willing to take
-                </p>
-                <div className={styles.flex}>
-                  <p>Very Low</p>
-                  <div className={` ${styles.w_c}`}>
+                  <div className={styles.flex_con}>
+                    <label className={styles.switch}>
+                      <input
+                        type="checkbox"
+                        onChange={() => setMode(!mode)}
+                        value={!mode}
+                      />
+                      <span
+                        className={`${styles.slider} ${styles.round}`}
+                      ></span>
+                    </label>
+                    <p>Enable editing</p>
+                  </div>
+                  {sent && (
+                    <div className={styles.status}>
+                      <p>Your profile has been successfully updated</p>
+                    </div>
+                  )}
+                  <fieldset disabled={mode}>
+                    <label htmlFor="">First name</label>
+                    {/* <input name="csrfToken" type="hidden" defaultValue={csrfToken} /> */}
                     <input
-                      type="range"
-                      min={1}
-                      max={10}
-                      value={risk}
+                      type="text"
+                      value={firstName}
                       onChange={(e) => {
-                        setRisk(e.target.value);
+                        setFirstName(e.target.value);
                       }}
                       required={true}
                     />
-                  </div>
-                  <p>Very High</p>
-                </div>
-                <div className={styles.submit}>
-                  <input type="submit" value="Update" className={styles.btn} />
-                </div>
-              </fieldset>
-            </form>
+                    <label>Last name</label>
+                    <input
+                      type="text"
+                      value={lastName}
+                      onChange={(e) => {
+                        setLastName(e.target.value);
+                      }}
+                      required={true}
+                    />
 
+                    <label>Date of Birth</label>
+                    <input
+                      type="date"
+                      value={dob}
+                      onChange={(e) => {
+                        setDob(e.target.value);
+                      }}
+                      required={true}
+                    />
+                    <label>Net Worth</label>
+                    <input
+                      type="number"
+                      value={networth}
+                      onChange={(e) => setNetworth(e.target.value)}
+                      required={true}
+                    />
+                    <label>Salary</label>
+                    <input
+                      type="number"
+                      value={salary}
+                      onChange={(e) => setSalary(e.target.value)}
+                      required={true}
+                    />
+                    <label>Risk Appetite</label>
+                    <p className={styles.sublabel}>
+                      How much risk are you willing to take
+                    </p>
+                    <div className={styles.flex}>
+                      <p>Very Low</p>
+                      <div className={` ${styles.w_c}`}>
+                        <input
+                          type="range"
+                          min={0}
+                          max={10}
+                          value={risk}
+                          onChange={(e) => {
+                            setRisk(e.target.value);
+                          }}
+                          required={true}
+                        />
+                      </div>
+                      <p>Very High</p>
+                    </div>
+                    <div className={styles.submit}>
+                      <input
+                        type="submit"
+                        value="Update"
+                        className={styles.btn}
+                      />
+                    </div>
+                  </fieldset>
+                </form>
+              </div>
+            )}
             {/* Form end */}
           </div>
         </div>

@@ -168,3 +168,13 @@
     }
   }
 }
+
+.errorStatus {
+  background-color: #cc0000;
+  color: #fff;
+  border-radius: 5px;
+  padding: 8px 24px;
+  p {
+    font-size: 16px;
+  }
+}

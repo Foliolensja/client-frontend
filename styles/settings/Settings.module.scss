@@ -38,6 +38,7 @@
 
 .section_sel {
   padding: 4px 16px;
+  cursor: pointer;
 }
 
 .bl {
@@ -265,4 +266,10 @@
       cursor: pointer;
     }
   }
+}
+
+.active {
+  background-color: #4c35e6;
+  color: #fff;
+  border-radius: 5px;
 }
