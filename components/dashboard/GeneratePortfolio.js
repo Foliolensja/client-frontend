@@ -66,7 +66,7 @@ const GeneratePortfolio = ({ user, setGenerating }) => {
         />
       </svg>
 
-      <h2>Welcome to foliolens</h2>
+      <h2>Welcome to FolioLens</h2>
       <p>Please generate your new portfolio</p>
       <button
         onClick={() => {

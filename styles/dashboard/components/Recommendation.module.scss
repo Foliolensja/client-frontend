@@ -16,6 +16,34 @@
     border-top: 1px solid #eaeaea;
     margin: 0;
   }
+
+  .loader {
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    border: 10px solid #b3a8f9;
+    border-top-color: #4c35e6;
+    box-sizing: border-box;
+    background: transparent;
+    animation: loading 1s linear infinite;
+    margin-bottom: 24px;
+  }
+
+  @keyframes loading {
+    0% {
+      transform: rotate(0deg);
+    }
+    0% {
+      transform: rotate(-360deg);
+    }
+  }
+
+  .flexCon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 }
 
 .innerCon {

@@ -5,6 +5,7 @@ import styles from "../../styles/dashboard/components/Recommendation.module.css"
 import Piechart from "./Piechart";
 import Link from "next/link";
 import GeneratePortfolio from "./GeneratePortfolio";
+import PortfolioGen from "./PortfolioGen";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export const Recommendation = () => {
@@ -37,6 +38,26 @@ export const Recommendation = () => {
     setPLabels(cLabels);
   }, []);
 
+  useEffect(async () => {
+    console.log(user);
+    let cLabels = [];
+    let cData = [];
+
+    portfolio = user?.portfolio?.indices;
+
+    for (let i = 0; i < portfolio?.length; i++) {
+      if (portfolio[i].weight * 100 > 1) {
+        cLabels.push(portfolio[i].ticker);
+        cData.push((portfolio[i].weight * 100).toFixed(2));
+      }
+      // console.log(cLabels);
+    }
+    // setUser(pData.user);
+    setGenerating(user?.generating);
+    setPData(cData);
+    setPLabels(cLabels);
+  }, [user]);
+
   let options = {
     plugins: {
       legend: {
@@ -58,7 +79,7 @@ export const Recommendation = () => {
         {pData.length ? (
           <Piechart cData={pData} cLabels={pLabels} options={options} />
         ) : generating ? (
-          <p>Please wait while your portfolio</p>
+          <PortfolioGen user={user} setUser={setUser} />
         ) : (
           <GeneratePortfolio user={user} setGenerating={setGenerating} />
         )}
