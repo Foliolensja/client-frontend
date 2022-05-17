@@ -30,6 +30,7 @@ const Track = () => {
   const [user, setUser] = useState({});
   const [test, setTest] = useState("Portfolio is generating. Please wait");
   const [gen, isGen] = useState(false);
+  const [tSum, setSum] = useState(0);
 
   const cAge = (dob) => {
     dob = new Date(dob);
@@ -138,6 +139,18 @@ const Track = () => {
     let nwIncome = salary / networth;
     let riskLevel = (ageRisk + riskA + nwIncome) / 3 + 0.5;
 
+    let sSum = 0;
+    let indicList = pData.user.portfolio?.indices;
+    // console.log(indicList);
+
+    for (let i = 0; i < indicList.length; i++) {
+      if (Number.parseFloat(indicList[i].weight) >= 0.01) {
+        sSum = sSum + Number.parseFloat(indicList[i].weight);
+      }
+    }
+    console.log(sSum);
+    setSum(sSum);
+
     console.log("Risk level " + riskLevel);
 
     let hTag = <p className={`${styles.tag} ${styles.negative}`}>High</p>;
@@ -199,6 +212,7 @@ const Track = () => {
                     ticker={index.ticker}
                     weight={index.weight}
                     key={index.ticker}
+                    tSum={tSum}
                   />
                 ))}
             </div>
