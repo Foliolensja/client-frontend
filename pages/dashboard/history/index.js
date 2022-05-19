@@ -51,7 +51,6 @@ const Track = () => {
               value={date}
               onChange={(e) => {
                 setDate(e.target.value);
-                console.log(e.target.value);
               }}
             />
             {date ? (

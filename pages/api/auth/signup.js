@@ -14,7 +14,6 @@ export default async function handler(req, res) {
       }
     );
     let data = await test.json();
-    console.log(data);
     if (data.statusCode === 403) {
       res.status(403).json({ status: data.message });
     }

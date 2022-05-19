@@ -21,7 +21,6 @@ export const Recommendation = () => {
 
     let cLabels = [];
     let cData = [];
-    console.log(pData);
 
     portfolio = pData.user.portfolio?.indices;
 
@@ -30,7 +29,6 @@ export const Recommendation = () => {
         cLabels.push(portfolio[i].ticker);
         cData.push((portfolio[i].weight * 100).toFixed(2));
       }
-      // console.log(cLabels);
     }
     setUser(pData.user);
     setGenerating(pData.user.generating);
@@ -39,7 +37,6 @@ export const Recommendation = () => {
   }, []);
 
   useEffect(async () => {
-    console.log(user);
     let cLabels = [];
     let cData = [];
 
@@ -50,9 +47,8 @@ export const Recommendation = () => {
         cLabels.push(portfolio[i].ticker);
         cData.push((portfolio[i].weight * 100).toFixed(2));
       }
-      // console.log(cLabels);
     }
-    // setUser(pData.user);
+
     setGenerating(user?.generating);
     setPData(cData);
     setPLabels(cLabels);
@@ -65,7 +61,6 @@ export const Recommendation = () => {
       },
     },
   };
-  // console.log(user);
   return (
     <div className={styles.con}>
       <div className={styles.flex}>

@@ -8,7 +8,6 @@ const fetchActivities = async (date) => {
         let data = await res.json();
         return data;
       } catch (error) {
-        console.log("Can't find data");
         return null;
       }
     } else {

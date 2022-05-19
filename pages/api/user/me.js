@@ -16,13 +16,10 @@ const fetchIndices = async (bearer) => {
 
 export default async function handler(req, res) {
   const session = await getSession({ req });
-  // console.log("Fetching user");
   let token = session.user.accessToken;
-  //   console.log(token);
   let bearer = "Bearer " + token;
 
   let user = await fetchIndices(bearer);
-  //   console.log(user);
 
   res.status(200).json({ user });
 }

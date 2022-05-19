@@ -5,8 +5,7 @@ import { Sidebar } from "../../../components/global/Sidebar";
 import { TopNav } from "../../../components/global/TopNav";
 import styles from "../../../styles/settings/Settings.module.css";
 import { useState, useEffect } from "react";
-import { useSession, getCsrfToken } from "next-auth/react";
-import Router, { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
 
 export default function Settings() {
   const [firstName, setFirstName] = useState("");
@@ -22,7 +21,6 @@ export default function Settings() {
   const [updated, setUpdated] = useState(false);
   const [generating, setGenerating] = useState(true);
   const [active, setActive] = useState(true);
-  const router = useRouter();
 
   const { data: session } = useSession();
 
@@ -31,7 +29,6 @@ export default function Settings() {
     let pData = await res.json();
     let user = pData.user;
 
-    console.log(pData);
     setFirstName(user.firstName);
     setLastName(user.lastName);
     setDob(user.dob?.substring(0, 10));
@@ -77,7 +74,7 @@ export default function Settings() {
         body: JSON.stringify(payload),
       });
       let data = await res.json();
-      console.log(data);
+
       setGenerating(true);
       setSent(false);
     } catch (error) {}
@@ -110,7 +107,6 @@ export default function Settings() {
         body: JSON.stringify(person),
       });
       let data = await res.json();
-      console.log(data);
     } catch (error) {}
 
     setSent(true);
@@ -138,7 +134,7 @@ export default function Settings() {
               >
                 Profile Info
               </span>
-              <span
+              {/* <span
                 className={`${styles.section_sel}  ${
                   active ? "" : styles.active
                 }`}
@@ -147,7 +143,7 @@ export default function Settings() {
                 }}
               >
                 Change Password
-              </span>
+              </span> */}
             </div>
             {/* Profile Info Tab */}
 

@@ -21,8 +21,6 @@ export const Indices = ({ date }) => {
     }
   }, [indices]);
 
-  // console.log(indices);
-
   return (
     <div className={styles.con}>
       <h2>Indices</h2>

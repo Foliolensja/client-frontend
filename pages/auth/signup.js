@@ -32,19 +32,15 @@ export default function Login({ csrfToken }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password !== cPassword) {
-      console.log("Password not the same");
       setError(true);
       setErrorText("Password and Confirm Password not the same");
     } else if (Number.parseFloat(networth) < Number.parseFloat(salary)) {
-      console.log("Your net worth cannot be less than your average salary");
       setError(true);
       setErrorText("Your net worth cannot be less than your annual salary");
     } else if (networth == 0) {
-      console.log("Your net worth cannot be 0 dollars");
       setError(true);
       setErrorText("Your net worth cannot be 0 dollars");
     } else if (salary == 0) {
-      console.log("Your salary cannot be 0 dollars");
       setError(true);
       setErrorText("Your salary cannot be 0 dollars");
     } else {
@@ -59,15 +55,13 @@ export default function Login({ csrfToken }) {
         riskRating: parseInt(risk),
       };
 
-      console.log(person.email);
-      // let res = await fetch("../api/auth/signup", {method: "POST", body})
       try {
         let res = await fetch("../api/auth/signup", {
           method: "POST",
           body: JSON.stringify(person),
         });
         let data = await res.json();
-        console.log(data);
+
         if (data?.status == "Credentials taken") {
           setError(true);
           setErrorText("Email already taken");

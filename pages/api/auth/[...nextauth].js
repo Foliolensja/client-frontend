@@ -19,7 +19,6 @@ export default NextAuth({
       },
       async authorize(credentials, req) {
         // Add logic here to look up the user from the credentials supplied
-        // console.log(credentials);
         const payload = {
           email: credentials.email,
           password: credentials.password,
@@ -36,13 +35,11 @@ export default NextAuth({
             },
           }
         );
-        // const user = { id: 1, name: "J Smith", email: "jsmith@example.com" };
+
         let data = await res.json();
-        // console.log(data);
         let user = {};
 
         let userRes = "";
-        // console.log(data.access_token);
         if (data.access_token) {
           let acTk = data.access_token;
           let bearer = "Bearer " + data.access_token;
@@ -63,7 +60,6 @@ export default NextAuth({
           let token = acTk;
           user = { ...data, token };
         }
-        // console.log(user);
         if (res.ok && user) {
           // Any object returned will be saved in `user` property of the JWT
           return user;
@@ -83,11 +79,9 @@ export default NextAuth({
   callbacks: {
     async jwt({ token, user, account }) {
       if (account && user) {
-        // console.log(user);
         return {
           ...token,
           accessToken: user.token,
-          //   refreshToken: user.data.refreshToken,
         };
       }
 
@@ -95,7 +89,6 @@ export default NextAuth({
     },
 
     async session({ session, token }) {
-      //   console.log("session", token);
       session.user.accessToken = token.accessToken;
 
       return session;

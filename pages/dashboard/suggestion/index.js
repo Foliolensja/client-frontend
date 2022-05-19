@@ -31,6 +31,7 @@ const Track = () => {
   const [test, setTest] = useState("Portfolio is generating. Please wait");
   const [gen, isGen] = useState(false);
   const [tSum, setSum] = useState(0);
+  const [date, setDate] = useState("");
 
   const cAge = (dob) => {
     dob = new Date(dob);
@@ -60,7 +61,6 @@ const Track = () => {
     } catch (error) {}
   };
 
-  let testData = {};
   let options = {
     weekday: "long",
     year: "numeric",
@@ -103,37 +103,33 @@ const Track = () => {
   useEffect(async () => {
     let res = await fetch("../api/user/me");
     let pData = await res.json();
-    console.log(pData.user);
+
+    let dateRes = await fetch("../api/dashboard/date");
+    let dateData = await dateRes.json();
+
+    setDate(dateData);
+
     let trackerData = pData.user.tracker?.dates;
-    console.log(trackerData);
     let tLabels = [];
     let tData = [];
-    let nTest = [];
-    let vTest = 0;
-    console.log(nTest);
+    let trackerDataList = [];
+    let growthAmount = 0;
     if (trackerData?.length != 0) {
       for (let i = 0; i < trackerData?.length; i++) {
         tLabels.push(trackerData[i].date);
-        // tData.push(trackerData[i].value)
         let x = (trackerData[i].value / trackerData[0].value - 1) * 100;
         tData.push(x.toFixed(2));
 
-        nTest.push(x);
+        trackerDataList.push(x);
       }
-      console.log("nTest", nTest[nTest.length - 1]);
-      setGrowth(nTest[nTest.length - 1]?.toFixed(2));
-      console.log(250000 * nTest[nTest.length - 1] + 250000);
-      vTest = 250000 * (nTest[nTest.length - 1] / 100) + 250000;
+      setGrowth(trackerDataList[trackerDataList.length - 1]?.toFixed(2));
+      growthAmount =
+        250000 * (trackerDataList[trackerDataList.length - 1] / 100) + 250000;
     }
     let age = cAge(pData.user.dob);
-    // let age = 20;
     let risk = pData.user.riskRating;
-    // let risk = 10;
     let networth = pData.user.netWorth;
-    // let networth = 1000000;
     let salary = pData.user.salary;
-    // let salary = 1000000;
-    console.log(age, risk, networth, salary);
     let ageRisk = age < 100 ? age / 100 : 1;
     let riskA = (10 - risk) / 10;
     let nwIncome = salary / networth;
@@ -141,17 +137,14 @@ const Track = () => {
 
     let sSum = 0;
     let indicList = pData.user.portfolio?.indices;
-    // console.log(indicList);
 
     for (let i = 0; i < indicList.length; i++) {
       if (Number.parseFloat(indicList[i].weight) >= 0.01) {
         sSum = sSum + Number.parseFloat(indicList[i].weight);
       }
     }
-    console.log(sSum);
-    setSum(sSum);
 
-    console.log("Risk level " + riskLevel);
+    setSum(sSum);
 
     let hTag = <p className={`${styles.tag} ${styles.negative}`}>High</p>;
     let mTag = <p className={`${styles.tag}`}>Moderate</p>;
@@ -165,29 +158,13 @@ const Track = () => {
       setRiskRange(lTag);
     }
 
-    console.log(riskLevel);
-
-    setCValue(vTest.toFixed(2));
+    setCValue(growthAmount.toFixed(2));
     setName(pData.user.firstName);
     setPortfolio(pData.user.portfolio?.indices);
     setLData(tData);
     setLabels(tLabels);
     setUser(pData.user);
   }, []);
-
-  // useEffect(()=>{
-  //   testData = {
-  //     labels: labels,
-  //     datasets: [
-  //       {
-  //         label: "Growth %",
-  //         data: lData,
-  //         borderColor: "rgb(255, 99, 132)",
-  //         backgroundColor: "rgba(255, 99, 132, 0.5)",
-  //       },
-  //     ],
-  //   };
-  // }, [lData])
 
   return (
     <div className={styles.con}>

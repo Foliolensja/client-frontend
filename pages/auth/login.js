@@ -33,14 +33,12 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email, password);
     const res = await signIn("credentials", {
       redirect: false,
       email: email,
       password: password,
       callbackUrl: `${window.location.origin}/dashboard`,
     });
-    console.log(res);
     if (res.error) {
       setError(true);
     }

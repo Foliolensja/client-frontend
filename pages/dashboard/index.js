@@ -5,14 +5,13 @@ import { TopNav } from "../../components/global/TopNav";
 import { Recommendation } from "../../components/dashboard/Recommendation";
 import { JSESummary } from "../../components/dashboard/JSESummary";
 import { MarketActivity } from "../../components/dashboard/MarketActivity";
-import { useSession, signIn, signOut, getToken } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
-
-// import styles from "../../styles/dashboard/Dashboard.module.css";
 import styles from "../../styles/Dashboard.module.css";
 
 const Dashboard = () => {
   const { data: session } = useSession();
+  const [date, setDate] = useState("");
   const [name, setName] = useState("");
   const router = useRouter();
 
@@ -26,10 +25,14 @@ const Dashboard = () => {
   useEffect(async () => {
     let res = await fetch("../api/user/me");
     let pData = await res.json();
+
+    let dateRes = await fetch("../api/dashboard/date");
+    let dateData = await dateRes.json();
+
+    setDate(dateData);
     setName(pData.user.firstName);
   }, []);
 
-  // const token = await getToken({ req, secret });
   let options = {
     weekday: "long",
     year: "numeric",
@@ -38,7 +41,6 @@ const Dashboard = () => {
   };
   let today = new Date();
 
-  // console.log(session);
   if (session) {
     return (
       <div className={styles.con}>
@@ -49,14 +51,13 @@ const Dashboard = () => {
             date={today.toLocaleDateString("en-US", options)}
             username={name}
           />
-          <Indices date={"2022-05-04"} />
-          {/* <button onClick={() => signOut()}>Sign out</button> */}
+          <Indices date={date?.date} />
           <div className={styles.cFlex}>
             <div className={styles.lFlex}>
               <Recommendation />
-              <JSESummary date={"2022-05-04"} />
+              <JSESummary date={date?.date} />
             </div>
-            <MarketActivity date={"2022-05-04"} />
+            <MarketActivity date={date?.date} />
           </div>
         </div>
       </div>

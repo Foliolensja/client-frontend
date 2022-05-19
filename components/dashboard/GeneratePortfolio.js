@@ -24,7 +24,6 @@ const GeneratePortfolio = ({ user, setGenerating }) => {
         body: JSON.stringify(payload),
       });
       let data = await res.json();
-      console.log(data);
       setGenerating(true);
     } catch (error) {}
   };

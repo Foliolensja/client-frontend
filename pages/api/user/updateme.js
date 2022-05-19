@@ -11,7 +11,6 @@ export default async function handler(req, res) {
     riskRating: user.riskRating,
   };
 
-  console.log(payload);
   try {
     const test = await fetch(
       `https://foliolens-backend.herokuapp.com/users/${user.id}`,
@@ -25,11 +24,8 @@ export default async function handler(req, res) {
       }
     );
 
-    // const genTest = await fetch("https://foliolens-backend.herokuapp.com/portfolios/generate-portfolio")
-    // const genTest = await fetch("https://foliolens-backend.herokuapp.com/portfolios/generate-portfolio")
-
     let data = await test.json();
-    // console.log(data);
+
     if (data.statusCode === 403) {
       res.status(403).json({ status: data.message });
     }
