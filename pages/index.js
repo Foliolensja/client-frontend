@@ -478,7 +478,11 @@ export default function Home() {
               </p>
 
               <div className={styles.icons}>
-                <a href="https://www.jasondecambre.me" target={"_blank"}>
+                <a
+                  href="https://www.jasondecambre.me"
+                  target={"_blank"}
+                  rel="noreferrer"
+                >
                   <span className={styles.icon_con}>
                     <svg
                       width="24"
@@ -512,7 +516,11 @@ export default function Home() {
                   </span>
                 </a>
 
-                <a href="https://twitter.com/jasondecambre" target={"_blank"}>
+                <a
+                  href="https://twitter.com/jasondecambre"
+                  target={"_blank"}
+                  rel="noreferrer"
+                >
                   <span className={styles.icon_con}>
                     <Image src={"/twit.png"} width={24} height={24} />
                   </span>
@@ -521,6 +529,7 @@ export default function Home() {
                 <a
                   href="https://www.linkedin.com/in/jasondecambre/"
                   target={"_blank"}
+                  rel="noreferrer"
                 >
                   <span className={styles.icon_con}>
                     <Image src={"/li.png"} width={24} height={24} />
@@ -545,7 +554,11 @@ export default function Home() {
               </p>
 
               <div className={styles.icons}>
-                <a href="https://www.marlonjames.tech" target={"_blank"}>
+                <a
+                  href="https://www.marlonjames.tech"
+                  target={"_blank"}
+                  rel="noreferrer"
+                >
                   <span className={styles.icon_con}>
                     <svg
                       width="24"
@@ -579,7 +592,11 @@ export default function Home() {
                   </span>
                 </a>
 
-                <a href="https://github.com/omisoul" target={"_blank"}>
+                <a
+                  href="https://github.com/omisoul"
+                  target={"_blank"}
+                  rel="noreferrer"
+                >
                   <span className={styles.icon_con}>
                     <svg
                       width="24"
@@ -609,6 +626,7 @@ export default function Home() {
                 <a
                   href="https://www.linkedin.com/in/marlon-jameswc/"
                   target={"_blank"}
+                  rel="noreferrer"
                 >
                   <span className={styles.icon_con}>
                     <Image src={"/li.png"} width={24} height={24} />
@@ -632,7 +650,11 @@ export default function Home() {
               </p>
 
               <div className={styles.icons}>
-                <a href="https://github.com/RjeEnn" target={"_blank"}>
+                <a
+                  href="https://github.com/RjeEnn"
+                  target={"_blank"}
+                  rel="noreferrer"
+                >
                   <span className={styles.icon_con}>
                     <svg
                       width="24"
@@ -662,6 +684,7 @@ export default function Home() {
                 <a
                   href="https://www.linkedin.com/in/rojae-martin-965277211/"
                   target={"_blank"}
+                  rel="noreferrer"
                 >
                   <span className={styles.icon_con}>
                     <Image src={"/li.png"} width={24} height={24} />
